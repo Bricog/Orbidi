@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <h2>Rectangle Creator</h2>
+      <p>Count: <input id="count" value="5" /></p>
+      <button id="create">Create</button>
+      <button id="cancel">Cancel</button>
+    </main>
+    <script>
+      document.getElementById("create").onclick = () => {
+        const textbox = document.getElementById("count");
+        const count = parseInt(textbox.value, 10);
+        parent.postMessage(
+          { pluginMessage: { type: "create-rectangles", count } },
+          "*"
+        );
+      };
+
+      document.getElementById("cancel").onclick = () => {
+        parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
+      };
+    </script>
+  </body>
+</html>
