@@ -1,6 +1,7 @@
-import { createLocalStyles } from "./modulos/creteLocalStyle/createLocalStyle";
-import { exportPDF } from "./modulos/exportPDF/exportPDf";
+import { createLocalStyles } from "./modulos/createLocalStyles/createLocalStyle";
+import { exportPDF } from "./modulos/exportPDFs/exportPDf";
 import { presentation } from "./modulos/presentation/presentations";
+import { syncStyle } from "./modulos/syncStyles/syncStyle";
 
 figma.showUI(__html__, {
   width: 280,
@@ -22,5 +23,10 @@ figma.ui.onmessage = async (msg: { type: string; count: number }) => {
   // Módulo Crear Local Style
   if (msg.type === "createLocalStyle") {
     createLocalStyles();
+  }
+
+  // Módulo sincronizar estilos
+  if (msg.type === "syncStyle") {
+    syncStyle();
   }
 };

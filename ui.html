@@ -14,6 +14,7 @@
   </hgroup>
   <div class="grid">
     <button id="createLocalStyle">Generar Estilos Locales</button>
+    <button id="syncStyle">Sincronizar Estilos Locales</button>
   </div>
 
   <!-- Módulo para generar automáticamente la presentación "Look & Feel" de Orbidi-->
@@ -53,6 +54,11 @@
   // PostMessage del módulo "Crear Local Style"
   document.getElementById("createLocalStyle").onclick = () => {
     parent.postMessage({ pluginMessage: { type: "createLocalStyle" } }, "*");
+  };
+
+  // PostMessage del módulo "Sincronizar Local Style"
+  document.getElementById("syncStyle").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "syncStyle" } }, "*");
   };
 
   onmessage = (event) => {
