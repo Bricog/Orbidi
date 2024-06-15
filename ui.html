@@ -9,7 +9,7 @@
   <!-- Módulo para generar automáticamente la presentación "Look & Feel" de Orbidi-->
   <hr />
   <hgroup>
-    <h2>Presentación</h2>
+    <h5>Presentación</h5>
     <p>Crea automáticamente la presentación "Look & Feel" de Orbidi</p>
   </hgroup>
   <div class="grid">
@@ -42,7 +42,6 @@
 
   onmessage = (event) => {
     const message = event.data.pluginMessage;
-    console.log("aqui");
     if (message.type === "exportedPDF") {
       const button = document.getElementById("exportPDF");
       if (button instanceof HTMLButtonElement) {
