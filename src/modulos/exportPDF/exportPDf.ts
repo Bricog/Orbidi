@@ -2,7 +2,6 @@ import { capitalizeFirstLetter } from "./scripts/capitalizeFirstLetter";
 import { PDFDocument } from "pdf-lib";
 
 export async function exportPDF() {
-  console.log("p1");
   const selectedFrames = figma.currentPage.selection;
 
   if (selectedFrames.length === 0) {
@@ -37,7 +36,7 @@ export async function exportPDF() {
       mergedPdf.addPage(page);
     });
   }
-  console.log("p2");
+
   const [propuesta, name] = figma.currentPage.name.split(" - ");
   const mergedPdfBytes = await mergedPdf.save();
   figma.ui.postMessage({
