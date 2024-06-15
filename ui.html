@@ -15,11 +15,49 @@
   <div class="grid">
     <button id="presentation">Generar presentación</button>
   </div>
+
+  <!-- Módulo para exportar los PDF -->
+  <hr />
+  <hgroup>
+    <h5>Exporta PDF</h5>
+    <p>Selecciona dos frame y exporta!</p>
+  </hgroup>
+  <div class="grid">
+    <button id="exportPDF">Exportar PDF</button>
+  </div>
 </main>
 
 <script>
+  document.getElementById("exportPDF").onclick = () => {
+    const button = document.getElementById("exportPDF");
+    if (button instanceof HTMLButtonElement) {
+      button.ariaBusy = true;
+    }
+    parent.postMessage({ pluginMessage: { type: "exportPDF" } }, "*");
+  };
   // PostMessage del modulo "Generar Presentación"
   document.getElementById("presentation").onclick = () => {
     parent.postMessage({ pluginMessage: { type: "presentation" } }, "*");
+  };
+
+  onmessage = (event) => {
+    const message = event.data.pluginMessage;
+    console.log("aqui");
+    if (message.type === "exportedPDF") {
+      const button = document.getElementById("exportPDF");
+      if (button instanceof HTMLButtonElement) {
+        button.ariaBusy = false;
+      }
+      const pdfBytes = new Uint8Array(message.pdfBytes);
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = message.name + ".pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
   };
 </script>

@@ -45,6 +45,7 @@
     }
   },
   "dependencies": {
-    "@picocss/pico": "^2.0.6"
+    "@picocss/pico": "^2.0.6",
+    "pdf-lib": "^1.17.1"
   }
 }
