@@ -4,10 +4,6 @@ import { PDFDocument } from "pdf-lib";
 export async function exportPDF() {
   const selectedFrames = figma.currentPage.selection;
 
-  if (selectedFrames.length === 0) {
-    figma.ui.postMessage({ type: "error", message: "No frames selected" });
-    return;
-  }
 
   // Ordenar los frames seleccionados por nombre
   const sortedFrames = [...selectedFrames].sort((a, b) => {

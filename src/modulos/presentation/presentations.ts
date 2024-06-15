@@ -1,8 +1,8 @@
-import { cardColors } from "./elements/cardColor";
-import { cardFonts } from "./elements/cardFonts";
-import { imagenThumbnail } from "./elements/imagenThumbnail";
-import { textClient } from "./elements/textClient";
-import { textPropuestas } from "./elements/textPropuestas";
+import { cardColors } from "./element/cardColor";
+import { cardFonts } from "./element/cardFonts";
+import { imagenThumbnail } from "./element/imagenThumbnail";
+import { textClient } from "./element/textClient";
+import { textPropuestas } from "./element/textPropuestas";
 
 export async function presentation() {
   cardColors();

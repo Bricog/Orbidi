@@ -6,6 +6,16 @@
 <main class="container">
   <h1>Orbidi</h1>
 
+  <!-- Módulo para generar los estilos locales-->
+  <hr />
+  <hgroup>
+    <h5>Estilos Locales</h5>
+    <p>Crea automáticamente los estilos locales</p>
+  </hgroup>
+  <div class="grid">
+    <button id="createLocalStyle">Generar Estilos Locales</button>
+  </div>
+
   <!-- Módulo para generar automáticamente la presentación "Look & Feel" de Orbidi-->
   <hr />
   <hgroup>
@@ -35,9 +45,14 @@
     }
     parent.postMessage({ pluginMessage: { type: "exportPDF" } }, "*");
   };
-  // PostMessage del modulo "Generar Presentación"
+  // PostMessage del módulo "Generar Presentación"
   document.getElementById("presentation").onclick = () => {
     parent.postMessage({ pluginMessage: { type: "presentation" } }, "*");
+  };
+
+  // PostMessage del módulo "Crear Local Style"
+  document.getElementById("createLocalStyle").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "createLocalStyle" } }, "*");
   };
 
   onmessage = (event) => {

@@ -1,3 +1,4 @@
+import { createLocalStyles } from "./modulos/creteLocalStyle/createLocalStyle";
 import { exportPDF } from "./modulos/exportPDF/exportPDf";
 import { presentation } from "./modulos/presentation/presentations";
 
@@ -16,5 +17,10 @@ figma.ui.onmessage = async (msg: { type: string; count: number }) => {
   // Módulo Exportar PDF
   if (msg.type === "exportPDF") {
     exportPDF();
+  }
+
+  // Módulo Crear Local Style
+  if (msg.type === "createLocalStyle") {
+    createLocalStyles();
   }
 };
