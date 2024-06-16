@@ -1,6 +1,6 @@
 import { createLocalStyles } from "./modulos/createLocalStyles/createLocalStyle";
-import { exportPDF } from "./modulos/exportPDFs/exportPDf";
-import { presentation } from "./modulos/presentation/presentations";
+import { exportPDF } from "./modulos/exportPDFs/exportPDF";
+import { presentation } from "./modulos/presentations/presentation";
 import { syncStyle } from "./modulos/syncStyles/syncStyle";
 
 figma.showUI(__html__, {
